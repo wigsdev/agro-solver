@@ -14,54 +14,55 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>Agro-Solver <span style="font-size: 0.8em">🌾</span></h1>
-            <p style="color: var(--text-light);">Herramientas de Precisión</p>
-            <div style="margin-top: 10px;">
-                <span id="status-display" class="status-badge">Conectando...</span>
-            </div>
+            <h1>Agro-Solver <span>🌾</span></h1>
+            <p>Herramientas de Precisión</p>
         </header>
 
-        <!-- Calculadora Card -->
-        <section class="card">
-            <h3>Calculadora de Densidad 🌱</h3>
+        <!-- Contenido Principal -->
+        <main>
+            <!-- Calculadora Card -->
+            <section class="card">
+                <h3>Calculadora de Densidad 🌱</h3>
 
-            <form id="density-form">
-                <div class="form-group">
-                    <label for="system">Sistema de Siembra</label>
-                    <select id="system">
-                        <option value="square">Cuadro / Rectángulo</option>
-                        <option value="triangular">Tresbolillo (Triangular)</option>
-                    </select>
-                </div>
+                <form id="density-form">
+                    <div class="form-group">
+                        <label for="system">Sistema de Siembra</label>
+                        <select id="system">
+                            <option value="square">Cuadro / Rectángulo</option>
+                            <option value="triangular">Tresbolillo (Triangular)</option>
+                        </select>
+                    </div>
 
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="row_distance">Surcos (m)</label>
-                            <input type="number" id="row_distance" step="0.01" min="0.1" placeholder="ej. 2.0" required>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="row_distance">Surcos (m)</label>
+                                <input type="number" id="row_distance" step="0.01" min="0.1" placeholder="ej. 2.0"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="plant_distance">Plantas (m)</label>
+                                <input type="number" id="plant_distance" step="0.01" min="0.1" placeholder="ej. 2.5"
+                                    required>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="plant_distance">Plantas (m)</label>
-                            <input type="number" id="plant_distance" step="0.01" min="0.1" placeholder="ej. 2.5"
-                                required>
-                        </div>
-                    </div>
+
+                    <button type="submit" id="calc-btn" class="btn">Calcular Densidad</button>
+                </form>
+
+                <!-- Resultados -->
+                <div id="result-display" class="hidden">
+                    <div class="result-label">Población Estimada:</div>
+                    <div id="density-value" class="result-value">-</div>
+                    <div id="density-context" class="result-context">-</div>
                 </div>
+            </section>
+        </main>
 
-                <button type="submit" id="calc-btn" class="btn">Calcular Densidad</button>
-            </form>
-
-            <!-- Resultados -->
-            <div id="result-display" class="hidden">
-                <div class="result-label">Población Estimada:</div>
-                <div id="density-value" class="result-value">-</div>
-                <div id="density-context" class="result-context">-</div>
-            </div>
-        </section>
-
-        <footer style="text-align: center; color: var(--text-light); font-size: 0.8rem;">
+        <footer>
             Agro-Solver v0.3.0 &copy; 2026
         </footer>
     </div>
