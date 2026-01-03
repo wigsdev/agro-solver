@@ -50,19 +50,29 @@ Sigue estos pasos para levantar el entorno de desarrollo local:
    cd Agro-Solver
    ```
 
-2. **Configurar Backend**
+2. **Backend Setup**
    ```bash
-   cd backend
-   python -m venv venv
    # Windows
+   python -m venv venv
    .\venv\Scripts\activate
+   
    # Linux/Mac
    source venv/bin/activate
-   # (Opcional por ahora) pip install -r requirements.txt
+   
+   # Instalar dependencias
+   pip install -r backend/requirements.txt
+   
+   # Ejecutar Servidor (Dev)
+   uvicorn backend.main:app --reload
+   
+   # Ejecutar Tests
+   pytest backend/tests
    ```
 
-3. **Ejecutar Frontend**
-   Simplemente abre el archivo `frontend/index.html` en tu navegador favorito o usa un servidor ligero como "Live Server".
+3. **Frontend Setup**
+   Simplemente abre el archivo `frontend/index.html` en tu navegador.
+   
+   > **Nota**: Asegúrate de que el backend esté corriendo en el puerto 8000. Si cambias el puerto, actualiza `frontend/config.js`.
 
 ## 🗺 Roadmap
 
