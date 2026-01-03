@@ -82,7 +82,10 @@ Sigue estos pasos para levantar el entorno de desarrollo local:
 - [ ] **Fase 4**: Dashboard Analítico y Reportes.
 
 ## 🤝 Contribuir
-Consulta [DEVELOPMENT.md](DEVELOPMENT.md) para conocer las normas de contribución y estándares de código de este proyecto.
+Consulta [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) para conocer las normas de contribución y estándares de código de este proyecto.
+
+## 📚 Documentación Técnica
+- [Fórmulas Agronómicas](docs/AGRONOMY.md): Detalles matemáticos de los cálculos.
 
 ## 📄 Licencia
 Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
