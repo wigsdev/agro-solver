@@ -1,0 +1,206 @@
+/* Agro-Solver UI - Field Ready v0.3.0 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    /* Paleta Corporativa Agrícola */
+    --primary-color: #2E7D32;    /* Verde Agrícola */
+    --primary-dark: #1B5E20;     /* Verde Oscuro Interact */
+    --earth-color: #795548;      /* Tierra */
+    --bg-color: #F5F7FA;         /* Fondo General */
+    --surface-color: #FFFFFF;    /* Tarjetas */
+    --text-color: #333333;       /* Texto Principal */
+    --text-light: #666666;       /* Texto Secundario */
+    --border-color: #E0E0E0;
+    
+    /* Feedback */
+    --success-bg: #E8F5E9;
+    --success-text: #2E7D32;
+    --error-bg: #FFEBEE;
+    --error-text: #C62828;
+
+    /* Spacing & Radius */
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+/* Layout Mobile-First */
+.container {
+    width: 100%;
+    max-width: 480px; /* Ancho máximo tipo app móvil en escritorio */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Components */
+.card {
+    background: var(--surface-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.card h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--earth-color);
+    font-size: 1.25rem;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px; /* Touch target generous */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.row {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.col {
+    flex: 1;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* Box Shadow para profundidad */
+    box-shadow: 0 2px 4px rgba(46, 125, 50, 0.2);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn:disabled {
+    background-color: var(--text-light);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Result Cards */
+#result-display {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    animation: fadeIn 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.result-success {
+    background-color: var(--success-bg);
+    border-left-color: var(--success-text) !important;
+}
+
+.result-error {
+    background-color: var(--error-bg);
+    border-left-color: var(--error-text) !important;
+}
+
+.result-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 4px 0;
+}
+
+.result-context {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Basic Status Badge */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+.status-badge.error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+}

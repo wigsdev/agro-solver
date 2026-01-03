@@ -1,6 +1,6 @@
 /**
- * Agro-Solver Frontend Logic
- * Handles communication with the backend.
+ * Lógica Frontend de Agro-Solver
+ * Maneja la comunicación con el backend.
  */
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.0] - To Be Released
+## [0.3.0] - To Be Released
+
+### Changed
+- **UI/UX**: Complete overhaul of the frontend interface.
+    - Implemented **Mobile-First** design using `style.css`.
+    - Defined agricultural color palette (Green #2E7D32, Earth #795548).
+    - Added styled cards for calculator and results.
+    - Improved visual feedback for success/error states.
+- **Localization**: Translated all system documentation and code comments to **Spanish**.
+    - `backend/main.py` docstrings.
+    - `backend/schemas.py` descriptions.
+    - `frontend/app.js` logic comments.
+
+## [0.2.0] - 2026-01-03
 
 ### Added
 - **Agronomy**: Implemented Density Calculator Module.

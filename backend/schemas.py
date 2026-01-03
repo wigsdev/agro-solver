@@ -6,11 +6,11 @@ class PlantingSystem(str, Enum):
     TRIANGULAR = "triangular"
 
 class DensityInput(BaseModel):
-    row_distance: float = Field(..., gt=0, description="Distance between rows in meters")
-    plant_distance: float = Field(..., gt=0, description="Distance between plants in meters")
+    row_distance: float = Field(..., gt=0, description="Distancia entre surcos en metros")
+    plant_distance: float = Field(..., gt=0, description="Distancia entre plantas en metros")
     system: PlantingSystem = Field(
         default=PlantingSystem.SQUARE, 
-        description="Planting arrangement system: 'square' (rect) or 'triangular' (tresbolillo)"
+        description="Sistema de siembra: 'square' (cuadro/rectángulo) o 'triangular' (tresbolillo)"
     )
 
     class Config:

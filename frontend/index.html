@@ -1,100 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro-Solver - Connectivity Check</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
-
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #status-display {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .status-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .status-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        .status-loading {
-            background-color: #e2e3e5;
-            color: #383d41;
-            border: 1px solid #d6d8db;
-        }
-    </style>
+    <title>Agro-Solver v0.3</title>
+    <!-- CSS y Fuentes -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Agro-Solver <span style="font-size: 0.8em">🌾</span></h1>
-        <p>System Connectivity Status:</p>
-        <div id="status-display" class="status-loading">Conectando...</div>
 
-        <div class="calculator-card"
-            style="margin-top: 2rem; text-align: left; padding-top: 1rem; border-top: 1px solid #eee;">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Agro-Solver <span style="font-size: 0.8em">🌾</span></h1>
+            <p style="color: var(--text-light);">Herramientas de Precisión</p>
+            <div style="margin-top: 10px;">
+                <span id="status-display" class="status-badge">Conectando...</span>
+            </div>
+        </header>
+
+        <!-- Calculadora Card -->
+        <section class="card">
             <h3>Calculadora de Densidad 🌱</h3>
+
             <form id="density-form">
-                <div style="margin-bottom: 1rem;">
-                    <label>Sistema de Siembra:</label>
-                    <select id="system" style="width: 100%; padding: 8px;">
+                <div class="form-group">
+                    <label for="system">Sistema de Siembra</label>
+                    <select id="system">
                         <option value="square">Cuadro / Rectángulo</option>
                         <option value="triangular">Tresbolillo (Triangular)</option>
                     </select>
                 </div>
-                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
-                    <div style="flex: 1;">
-                        <label>Distancia Surcos (m):</label>
-                        <input type="number" id="row_distance" step="0.01" min="0.1" required
-                            style="width: 100%; padding: 8px;">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="row_distance">Surcos (m)</label>
+                            <input type="number" id="row_distance" step="0.01" min="0.1" placeholder="ej. 2.0" required>
+                        </div>
                     </div>
-                    <div style="flex: 1;">
-                        <label>Distancia Plantas (m):</label>
-                        <input type="number" id="plant_distance" step="0.01" min="0.1" required
-                            style="width: 100%; padding: 8px;">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="plant_distance">Plantas (m)</label>
+                            <input type="number" id="plant_distance" step="0.01" min="0.1" placeholder="ej. 2.5"
+                                required>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" id="calc-btn"
-                    style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer;">Calcular</button>
+
+                <button type="submit" id="calc-btn" class="btn">Calcular Densidad</button>
             </form>
 
-            <div id="result-display"
-                style="margin-top: 1rem; display: none; padding: 10px; background: #e9ecef; border-radius: 4px;">
-                <strong>Población Estimada:</strong>
-                <div id="density-value" style="font-size: 1.5em; color: #28a745; font-weight: bold;">-</div>
-                <small id="density-context" style="color: #6c757d;"></small>
+            <!-- Resultados -->
+            <div id="result-display" class="hidden">
+                <div class="result-label">Población Estimada:</div>
+                <div id="density-value" class="result-value">-</div>
+                <div id="density-context" class="result-context">-</div>
             </div>
-        </div>
+        </section>
+
+        <footer style="text-align: center; color: var(--text-light); font-size: 0.8rem;">
+            Agro-Solver v0.3.0 &copy; 2026
+        </footer>
     </div>
 
-    <!-- Scripts -->
+    <!-- Logic -->
     <script src="config.js"></script>
     <script src="app.js"></script>
 </body>

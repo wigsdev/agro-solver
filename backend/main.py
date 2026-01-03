@@ -5,8 +5,8 @@ import math
 
 app = FastAPI(
     title="Agro-Solver API",
-    description="Backend API for Agro-Solver platform",
-    version="0.1.0"
+    description="API Backend para la plataforma Agro-Solver",
+    version="0.2.0"
 )
 
 # TODO: SEGURIDAD - Restringir orígenes antes de producción
@@ -24,23 +24,23 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     """
-    Root endpoint to verify API availability.
+    Endpoint raíz para verificar la disponibilidad de la API.
     """
     return {"message": "Agro-Solver API is running", "version": "0.2.0"}
 
 @app.post("/api/density")
 def calculate_density(data: DensityInput):
     """
-    Calculate planting density based on distances and system.
+    Calcula la densidad de siembra basada en las distancias y el sistema.
     """
     try:
-        # Standard Formula: 10000 / (d1 * d2)
+        # Fórmula Estándar: 10000 / (d1 * d2)
         base_density = 10000 / (data.row_distance * data.plant_distance)
         
-        # Apply Efficiency Factor for Triangular (Tresbolillo)
-        # Factor is 1 / sin(60°) ≈ 1.1547 (which means dividing by 0.866 in the denominator)
+        # Aplicar Factor de Eficiencia para Tresbolillo (Triangular)
+        # El factor es 1 / sin(60°) ≈ 1.1547 (lo que significa dividir por 0.866 en el denominador)
         if data.system == PlantingSystem.TRIANGULAR:
-            # Formula: 10000 / (d1 * d2 * 0.866025)
+            # Fórmula: 10000 / (d1 * d2 * 0.866025)
             plants_per_hectare = base_density / 0.8660254
         else:
             plants_per_hectare = base_density
