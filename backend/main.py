@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from backend.schemas import DensityInput, PlantingSystem
-import math
 
 app = FastAPI(
     title="Agro-Solver API",

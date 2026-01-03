@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // UI Loading State
         calcBtn.disabled = true;
         calcBtn.textContent = "Calculando...";
-        resultDiv.style.display = 'none';
+        resultDiv.classList.add('hidden'); // Fix: Use class instead of inline style
 
         const payload = {
             row_distance: parseFloat(document.getElementById('row_distance').value),
@@ -46,20 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             // UI Success State
-            resultDiv.style.display = 'block';
+            resultDiv.classList.remove('hidden');
+            resultDiv.classList.remove('result-error');
+            resultDiv.classList.add('result-success');
+
             densityValue.textContent = `${data.plants_per_hectare.toLocaleString()} plantas/ha`;
             densityContext.textContent = `Sistema: ${data.system_used === 'triangular' ? 'Tresbolillo' : 'Cuadro'}`;
-            densityValue.style.color = '#28a745';
 
         } catch (error) {
             // UI Error State
-            resultDiv.style.display = 'block';
+            resultDiv.classList.remove('hidden');
+            resultDiv.classList.remove('result-success');
+            resultDiv.classList.add('result-error');
+
             densityValue.textContent = "Error";
-            densityContext.textContent = error.message;
-            densityValue.style.color = '#dc3545';
+
+            // Manejo Diferenciado de Errores (Red vs API)
+            if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+                densityContext.textContent = "⚠️ Error de conexión: No se pudo contactar al servidor";
+            } else {
+                densityContext.textContent = error.message;
+            }
         } finally {
             calcBtn.disabled = false;
-            calcBtn.textContent = "Calcular";
+            calcBtn.textContent = "Calcular Densidad";
         }
     });
 });

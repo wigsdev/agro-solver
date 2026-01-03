@@ -35,7 +35,29 @@ La agricultura moderna enfrenta desafíos complejos: variabilidad climática, ge
 - Git & GitHub Actions
 - Docker (Planned)
 
-## 🚀 Instalación
+## 🛠️ Instalación
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/tu-usuario/Agro-Solver.git
+    cd Agro-Solver
+    ```
+
+2.  **Configurar entorno virtual (Backend):**
+    ```bash
+    python -m venv backend/venv
+    # Windows
+    .\backend\venv\Scripts\activate
+    # Linux/Mac
+    source backend/venv/bin/activate
+    ```
+
+3.  **Instalar dependencias:**
+    ```bash
+    pip install -r backend/requirements.txt
+    ```
+
+## 🚀 Uso
 
 Sigue estos pasos para levantar el entorno de desarrollo local:
 
