@@ -5,14 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.9.0] - To Be Released
+## [1.0.0] - To Be Released
+
+> **First Stable Release.** Core Seed Density Calculator is fully operational.
+
+### Added
+- **Backlog**: Created `TODO.md` with future roadmap (Login, SQLite, Docker).
 
 ### Changed
-- **Hardening**: Prepared codebase for production deployment.
-    - **Backend**: Cleaned up `main.py` (removed unused imports/prints).
-    - **Dependencies**: Standardized `requirements.txt` with essential packages only.
-    - **Frontend**: Implemented robust error handling in `app.js` to distinguish between Network Errors (offline) and API Errors.
-    - **Cleanup**: Removed debug `console.log` statements from client-side code.
+- **Refactoring**: Final code polish and removal of development artifacts.
+
+## [0.9.0] - 2026-01-03
 
 ## [0.3.0] - 2026-01-03
 

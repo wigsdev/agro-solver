@@ -59,23 +59,6 @@ La agricultura moderna enfrenta desafíos complejos: variabilidad climática, ge
 
 ## 🚀 Uso
 
-Sigue estos pasos para levantar el entorno de desarrollo local:
-
-### Prerrequisitos
-- Python 3.10 o superior
-- Git
-
-### Pasos
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/tu-usuario/Agro-Solver.git
-   cd Agro-Solver
-   ```
-
-2. **Backend Setup**
-   ```bash
-   # Windows
-   python -m venv venv
    .\venv\Scripts\activate
    
    # Linux/Mac

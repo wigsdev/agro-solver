@@ -8,8 +8,8 @@ app = FastAPI(
     version="0.2.0"
 )
 
-# TODO: SEGURIDAD - Restringir orígenes antes de producción
-# Actualmente se permite '*' para facilitar el desarrollo local.
+# Configuración CORS
+# Permite solicitudes de cualquier origen (útil para desarrollo y producción simple)
 origins = ["*"]
 
 app.add_middleware(

@@ -4,9 +4,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Execute check
-    // Connectivity check removed for UI clean up
-    console.log('App initialized');
+    // Inicialización de la App
+    console.log('Agro-Solver v1.0.0 Ready');
 
     // Calculator Logic
     const form = document.getElementById('density-form');
