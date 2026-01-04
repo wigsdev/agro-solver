@@ -5,7 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - To Be Released
+## [2.0.0] - To Be Released
+
+> **Major Refactor: Agro-Tech Portal.** Transformed into a multi-page content platform.
+
+### Changed
+- **Branding**: Rebranded from 'Agro-Solver' to **'Agro-Tech'**. New visual identity (Deep Green/Slate).
+- **Architecture**: Migrated from Static Frontend to **Jinja2 Server-Side Rendering**.
+    - Moved HTML to `/templates` and Assets to `/static`.
+    - Implemented `base.html` for layout inheritance.
+- **Features**:
+    - Added **Home Page** (Landing).
+    - Added **Tools Hub** (Catalog).
+    - Added **Blog** Section.
+
+## [1.0.0] - 2026-01-03
 
 > **First Stable Release.** Core Seed Density Calculator is fully operational.
 

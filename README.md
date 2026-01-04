@@ -1,39 +1,46 @@
-# Agro-Solver 🌾
+# Agro-Tech 🌾
 
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Stable%20v2.0.0-green?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-![Tech](https://img.shields.io/badge/Stack-FastAPI%20%7C%20VanillaJS-green?style=for-the-badge)
+![Tech](https://img.shields.io/badge/Stack-FastAPI%20%7C%20Jinja2-orange?style=for-the-badge)
 
-> **Soluciones Agrícolas Inteligentes impulsadas por Ingeniería de Software.**
+> **Inteligencia Digital para el Campo.**
 
-Agro-Solver es una plataforma integral diseñada para optimizar la toma de decisiones en el sector agrícola mediante análisis de datos, gestión de cultivos y automatización de procesos.
+**Agro-Tech** (anteriormente Agro-Solver) es un portal integral de servicios agronómicos diseñado para optimizar la toma de decisiones mediante tecnología accesible.
 
 ## 📋 Tabla de Contenidos
 - [Descripción del Problema](#-descripción-del-problema)
+- [Arquitectura (v2.0.0)](#-arquitectura-v200-mvc)
 - [Stack Tecnológico](#-stack-tecnológico)
 - [Instalación](#-instalación)
 - [Uso](#-uso)
-- [Roadmap](#-roadmap)
 - [Contribuir](#-contribuir)
-- [Licencia](#-licencia)
 
 ## 🧐 Descripción del Problema
-La agricultura moderna enfrenta desafíos complejos: variabilidad climática, gestión ineficiente de recursos y falta de digitalización en procesos clave. Agro-Solver busca resolver estos problemas centralizando la información y proveyendo herramientas analíticas accesibles y potentes.
+La agricultura moderna requiere más que cálculos aislados; necesita un ecosistema de información. Agro-Tech centraliza herramientas de cálculo, contenido educativo y análisis de datos en una sola plataforma web unificada.
+
+## 🏗 Arquitectura (v2.0.0: MVC)
+El proyecto ha evolucionado de una API REST simple a una arquitectura **Server-Side Rendering (SSR)** para mejorar el SEO y la extensibilidad.
+- **Modelos**: Pydantic (`backend/schemas.py`).
+- **Vistas (Templates)**: Jinja2 HTML (`templates/`).
+- **Controlador**: FastAPI Routing (`backend/main.py`).
 
 ## 🛠 Stack Tecnológico
 
-**Backend**
+**Backend & Rendering**
 - Python 3.11+
 - FastAPI (High performance API)
+- **Jinja2** (Template Engine)
 - Pydantic (Data Validation)
 
-**Frontend**
-- HTML5 / CSS3 Moderno
-- JavaScript (ES6+ Vanilla)
+**Frontend (Assets)**
+- HTML5 Semántico
+- CSS3 (Variables & Mobile First)
+- Vanilla JS (ES6+)
 
-**DevOps & Tools**
-- Git & GitHub Actions
-- Docker (Planned)
+**DevOps**
+- Render (PaaS Deployment)
+- Infrastructure as Code (`render.yaml`)
 
 ## 🛠️ Instalación
 
@@ -54,7 +61,7 @@ La agricultura moderna enfrenta desafíos complejos: variabilidad climática, ge
 
 3.  **Instalar dependencias:**
     ```bash
-    pip install -r backend/requirements.txt
+    pip install -r requirements.txt
     ```
 
 ## 🚀 Uso
@@ -77,7 +84,20 @@ La agricultura moderna enfrenta desafíos complejos: variabilidad climática, ge
 3. **Frontend Setup**
    Simplemente abre el archivo `frontend/index.html` en tu navegador.
    
-   > **Nota**: Asegúrate de que el backend esté corriendo en el puerto 8000. Si cambias el puerto, actualiza `frontend/config.js`.
+## 🚀 Uso
+
+1.  **Iniciar el Servidor:**
+    ```bash
+    uvicorn backend.main:app --reload
+    ```
+2.  **Navegar al Portal:**
+    - Abre `http://127.0.0.1:8000` en tu navegador.
+    - **Inicio**: Landing page con proposición de valor.
+    - **Herramientas**: Catálogo de calculadoras (/tools).
+    - **Blog**: Artículos técnicos (/blog).
+
+---
+**Status:** Stable v2.0.0 (Agro-Tech)
 
 ## 🗺 Roadmap
 
