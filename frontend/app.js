@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch(`${CONFIG.API_URL}/api/density`, {
+            // Refactorización: Uso de ruta relativa para despliegue unificado
+            const response = await fetch(`/api/density`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

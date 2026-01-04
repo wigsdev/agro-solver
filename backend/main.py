@@ -1,11 +1,14 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from backend.schemas import DensityInput, PlantingSystem
+import os
 
 app = FastAPI(
     title="Agro-Solver API",
     description="API Backend para la plataforma Agro-Solver",
-    version="0.2.0"
+    version="1.0.0"
 )
 
 # Configuración CORS
@@ -20,13 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    """
-    Endpoint raíz para verificar la disponibilidad de la API.
-    """
-    return {"message": "Agro-Solver API is running", "version": "0.2.0"}
-
+# 1. API Endpoints (Prioridad Alta)
 @app.post("/api/density")
 def calculate_density(data: DensityInput):
     """
@@ -52,3 +49,15 @@ def calculate_density(data: DensityInput):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# 2. Endpoint Raíz (Antes de montar estáticos para asegurar index.html)
+@app.get("/")
+async def read_root():
+    """
+    Sirve el archivo frontend/index.html en la raíz.
+    """
+    return FileResponse('frontend/index.html')
+
+# 3. Archivos Estáticos (Frontend)
+# Montamos la carpeta 'frontend' en la raíz para servir CSS, JS y otros assets.
+app.mount("/", StaticFiles(directory="frontend"), name="static")
