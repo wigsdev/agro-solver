@@ -1,18 +1,17 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.templating import Jinja2Templates
 from backend.schemas import DensityInput, PlantingSystem
 import os
 
 app = FastAPI(
-    title="Agro-Solver API",
-    description="API Backend para la plataforma Agro-Solver",
-    version="1.0.0"
+    title="Agro-Tech Portal",
+    description="Portal de servicios agronómicos",
+    version="2.0.0"
 )
 
 # Configuración CORS
-# Permite solicitudes de cualquier origen (útil para desarrollo y producción simple)
 origins = ["*"]
 
 app.add_middleware(
@@ -23,7 +22,34 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 1. API Endpoints (Prioridad Alta)
+# Configuración de Archivos Estáticos y Templates
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
+
+# --- Rutas de Vistas (HTML) ---
+
+@app.get("/")
+async def read_home(request: Request):
+    """Landing Page"""
+    return templates.TemplateResponse("home.html", {"request": request})
+
+@app.get("/tools")
+async def read_tools(request: Request):
+    """Catálogo de Herramientas"""
+    return templates.TemplateResponse("tools_hub.html", {"request": request})
+
+@app.get("/tools/density")
+async def read_calculator(request: Request):
+    """Calculadora de Densidad"""
+    return templates.TemplateResponse("calculator.html", {"request": request})
+
+@app.get("/blog")
+async def read_blog(request: Request):
+    """Blog Page"""
+    return templates.TemplateResponse("blog.html", {"request": request})
+
+# --- API Endpoints ---
+
 @app.post("/api/density")
 def calculate_density(data: DensityInput):
     """

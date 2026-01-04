@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Herramientas - Agro-Tech{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 2rem;">
+    <h2>Herramientas de Cálculo 🧮</h2>
+    <p style="color: var(--text-light);">Selecciona una herramienta para comenzar.</p>
+</div>
+
+<div class="row">
+    <!-- Card Activa -->
+    <div class="col card">
+        <h3>Calculadora de Densidad</h3>
+        <p>Calcula plantas por hectárea para sistemas de Cuadro y Tresbolillo.</p>
+        <a href="/tools/density" class="btn"
+            style="display: block; text-align: center; text-decoration: none; margin-top: 1rem;">Usar Herramienta</a>
+    </div>
+
+    <!-- Card Inactiva -->
+    <div class="col card" style="opacity: 0.7;">
+        <h3 style="color: grey;">Conversor de Unidades</h3>
+        <p>Hectáreas, Acres, Manzanas y más.</p>
+        <button class="btn" disabled
+            style="width: 100%; margin-top: 1rem; background-color: grey;">Próximamente</button>
+    </div>
+</div>
+{% endblock %}

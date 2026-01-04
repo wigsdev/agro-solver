@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-    /* Paleta Corporativa Agrícola */
+    /* Paleta Agro-Tech */
     --primary-color: #2E7D32;
-    /* Verde Agrícola */
+    /* Verde Profundo */
     --primary-dark: #1B5E20;
-    /* Verde Oscuro Interact */
-    --earth-color: #795548;
-    /* Tierra */
+    /* Verde Interacción */
+    --secondary-color: #37474F;
+    /* Gris Pizarra */
     --bg-color: #F5F7FA;
-    /* Fondo General */
+    /* Fondo Tech Clean */
     --surface-color: #FFFFFF;
     /* Tarjetas */
     --text-color: #333333;

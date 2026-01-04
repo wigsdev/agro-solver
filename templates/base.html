@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Agro-Tech{% endblock %}</title>
+    <!-- CSS y Fuentes -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Agro-Tech <span>🌾</span></h1>
+            <p>Inteligencia Digital para el Campo</p>
+            <!-- Navigation -->
+            <nav style="margin-top: 1rem;">
+                <a href="/"
+                    style="margin-right: 15px; text-decoration: none; color: var(--primary-color); font-weight: bold;">Inicio</a>
+                <a href="/tools"
+                    style="margin-right: 15px; text-decoration: none; color: var(--secondary-color);">Herramientas</a>
+                <a href="/blog" style="text-decoration: none; color: var(--secondary-color);">Blog</a>
+            </nav>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            &copy; 2026 Agro-Tech. Impulsando el agro con datos.
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

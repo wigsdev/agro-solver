@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - Agro-Tech{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 2rem;">
+    <h2>Novedades Agro-Tech 📰</h2>
+    <p style="color: var(--text-light);">Artículos técnicos para el agrónomo moderno.</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <article class="card">
+        <h3>Cómo elegir tu primer drone agrícola 🚁</h3>
+        <p style="color: var(--text-light); font-size: 0.9rem;">Publicado: 12 Ene 2026</p>
+        <p>Una guía completa sobre Mavic 3 Multispectral vs DJI Agras. ¿Qué necesitas para empezar?</p>
+        <a href="#" style="color: var(--primary-color); font-weight: bold;">Leer más -></a>
+    </article>
+
+    <article class="card">
+        <h3>Sensores de humedad: ¿Valen la pena? 💧</h3>
+        <p style="color: var(--text-light); font-size: 0.9rem;">Publicado: 05 Ene 2026</p>
+        <p>Análisis ROI de la implementación de sondas capacitivas en cultivos intensivos.</p>
+        <a href="#" style="color: var(--primary-color); font-weight: bold;">Leer más -></a>
+    </article>
+</div>
+{% endblock %}
