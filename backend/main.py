@@ -48,10 +48,21 @@ async def read_calculator(request: Request):
     """Calculadora de Densidad"""
     return templates.TemplateResponse("calculator.html", {"request": request})
 
+from backend.blog_engine import get_posts, get_post_by_slug
+
 @app.get("/blog")
 async def read_blog(request: Request):
-    """Blog Page"""
-    return templates.TemplateResponse("blog.html", {"request": request})
+    """Blog Page - Lista Dinámica"""
+    posts = get_posts()
+    return templates.TemplateResponse("blog.html", {"request": request, "posts": posts})
+
+@app.get("/blog/{slug}")
+async def read_post(request: Request, slug: str):
+    """Detalle de Post Markdown"""
+    post = get_post_by_slug(slug)
+    if not post:
+        raise HTTPException(status_code=404, detail="Artículo no encontrado")
+    return templates.TemplateResponse("post_detail.html", {"request": request, "post": post})
 
 # --- API Endpoints ---
 
