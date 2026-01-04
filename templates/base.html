@@ -5,34 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Agro-Tech{% endblock %}</title>
-    <!-- CSS y Fuentes -->
+    <!-- Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
 </head>
 
 <body>
 
     <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>Agro-Tech <span>🌾</span></h1>
-            <p>Inteligencia Digital para el Campo</p>
-            <!-- Navigation -->
-            <nav style="margin-top: 1rem;">
-                <a href="/"
-                    style="margin-right: 15px; text-decoration: none; color: var(--primary-color); font-weight: bold;">Inicio</a>
-                <a href="/tools"
-                    style="margin-right: 15px; text-decoration: none; color: var(--secondary-color);">Herramientas</a>
-                <a href="/blog" style="text-decoration: none; color: var(--secondary-color);">Blog</a>
-            </nav>
-        </header>
+        <!-- Navbar Moderno -->
+        <nav class="navbar">
+            <div class="brand">
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-wheat-awn" style="color: var(--primary-light); font-size: 1.5rem;"></i>
+                    <span style="color: var(--secondary-color); font-weight: 800; font-size: 1.25rem;">Agro-Tech</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="/tools"><i class="fa-solid fa-screwdriver-wrench"></i> Herramientas</a>
+                <a href="/blog"><i class="fa-solid fa-newspaper"></i> Blog</a>
+            </div>
+        </nav>
 
-        <!-- Contenido Principal -->
-        <main>
+        <!-- Bloque Principal -->
+        {% block main_content %}
+        <!-- Default wrapper for pages that don't override this -->
+        <main class="content-wrapper">
             {% block content %}{% endblock %}
         </main>
+        {% endblock %}
 
+        <!-- Footer 3-Columnas -->
         <footer>
-            &copy; 2026 Agro-Tech. Impulsando el agro con datos.
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                        <i class="fa-solid fa-leaf" style="color: var(--accent-color);"></i>
+                        <h4 style="margin:0;">Agro-Tech</h4>
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        Inteligencia digital para el campo moderno. Optimizando cultivos con datos.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <a href="/">Inicio</a>
+                    <a href="/tools">Catálogo de Herramientas</a>
+                    <a href="/blog">Novedades y Artículos</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Uso</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Agro-Tech. Todos los derechos reservados.
+            </div>
         </footer>
     </div>
 

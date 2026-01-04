@@ -3,26 +3,50 @@
 {% block title %}Herramientas - Agro-Tech{% endblock %}
 
 {% block content %}
-<div style="margin-bottom: 2rem;">
-    <h2>Herramientas de Cálculo 🧮</h2>
+<div style="margin-bottom: 2rem; text-align: center;">
+    <h2><i class="fa-solid fa-toolbox"></i> Herramientas de Cálculo</h2>
     <p style="color: var(--text-light);">Selecciona una herramienta para comenzar.</p>
 </div>
 
-<div class="row">
+<div class="row" style="flex-wrap: wrap;">
     <!-- Card Activa -->
-    <div class="col card">
-        <h3>Calculadora de Densidad</h3>
-        <p>Calcula plantas por hectárea para sistemas de Cuadro y Tresbolillo.</p>
-        <a href="/tools/density" class="btn"
-            style="display: block; text-align: center; text-decoration: none; margin-top: 1rem;">Usar Herramienta</a>
+    <div class="col card" style="min-width: 300px;">
+        <div style="display: flex; gap: 15px; align-items: start; margin-bottom: 1rem;">
+            <div style="background: var(--success-bg); padding: 12px; border-radius: 50%;">
+                <i class="fa-solid fa-seedling" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+            </div>
+            <div>
+                <h3 style="margin: 0; margin-bottom: 5px;">Calculadora de Densidad</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Plantas por hectárea</p>
+            </div>
+        </div>
+
+        <p style="margin-bottom: 1.5rem;">Calcula la población óptima para sistemas de Cuadro y Tresbolillo con alta
+            precisión.</p>
+
+        <a href="/tools/density" class="btn btn-block" style="text-decoration: none; display: block;">
+            Usar Herramienta <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+        </a>
     </div>
 
     <!-- Card Inactiva -->
-    <div class="col card" style="opacity: 0.7;">
-        <h3 style="color: grey;">Conversor de Unidades</h3>
-        <p>Hectáreas, Acres, Manzanas y más.</p>
-        <button class="btn" disabled
-            style="width: 100%; margin-top: 1rem; background-color: grey;">Próximamente</button>
+    <div class="col card" style="min-width: 300px; opacity: 0.8; background: #fafafa;">
+        <div style="display: flex; gap: 15px; align-items: start; margin-bottom: 1rem;">
+            <div style="background: #eceff1; padding: 12px; border-radius: 50%;">
+                <i class="fa-solid fa-ruler-combined" style="color: #546E7A; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+                <h3 style="margin: 0; margin-bottom: 5px; color: #546E7A;">Unidades</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Conversor de Área</p>
+            </div>
+        </div>
+
+        <p style="margin-bottom: 1.5rem;">Hectáreas, Acres, Manzanas y más. Herramienta esencial para comercio
+            internacional.</p>
+
+        <button class="btn btn-block" disabled style="background-color: #cfd8dc; color: #78909c;">
+            <i class="fa-solid fa-clock"></i> Próximamente
+        </button>
     </div>
 </div>
 {% endblock %}
