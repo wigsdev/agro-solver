@@ -38,6 +38,11 @@ async def read_tools(request: Request):
     """Catálogo de Herramientas"""
     return templates.TemplateResponse("tools_hub.html", {"request": request})
 
+@app.get("/tools/converter")
+async def read_converter(request: Request):
+    """Conversor de Unidades"""
+    return templates.TemplateResponse("converter.html", {"request": request})
+
 @app.get("/tools/density")
 async def read_calculator(request: Request):
     """Calculadora de Densidad"""

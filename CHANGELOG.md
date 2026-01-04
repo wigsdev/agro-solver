@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - To Be Released
+## [2.1.0] - 2026-01-04
+
+> **Feature Release:** Added instant Unit Converter tool logic on client-side.
+
+### Added
+- **Module**: Unit Converter Tool (`/tools/converter`).
+    - Surfaces: Ha, Acres, Manzanas, m², Tareas.
+    - Weights: Ton, Quintal (qq), Kg, Lb.
+    - **Client-Side Engine**: Zero-latency conversion using `converter.js`.
+    - **UI**: Tabbed interface for category switching.
+
+## [2.0.0] - 2026-01-04
 
 > **Major Refactor: Agro-Tech Portal.** Transformed into a multi-page content platform.
 
