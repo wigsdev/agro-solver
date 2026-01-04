@@ -52,19 +52,26 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    /* Sticky Footer Logic */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Layout Scalable */
+/* Layout Scalable */
 .container {
     width: 100%;
-    /* Max width aumentado para "Portal" look */
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 100vh;
+    padding: 0 1rem;
+}
+
+.navbar-content {
     display: flex;
-    flex-direction: column;
-    padding: 0;
-    /* Padding manejado por hijos */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 /* Navbar */
