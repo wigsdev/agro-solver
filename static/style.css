@@ -2,26 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-    /* Paleta Agro-Tech */
-    --primary-color: #2E7D32;
-    /* Verde Profundo */
-    --primary-dark: #1B5E20;
-    /* Verde Interacción */
-    --secondary-color: #37474F;
-    /* Gris Pizarra */
-    --bg-color: #F5F7FA;
-    /* Fondo Tech Clean */
-    --surface-color: #FFFFFF;
-    /* Tarjetas */
-    --text-color: #333333;
-    /* Texto Principal */
-    --text-light: #666666;
-    /* Texto Secundario */
-    --border-color: #E0E0E0;
+    /* Paleta SaaS Moderno */
+    --primary-color: #1B5E20;
+    /* Verde Bosque Profundo */
+    --primary-light: #2E7D32;
+    /* Verde Base */
+    --accent-color: #4CAF50;
+    /* Verde Vibrante (Botones) */
+    --secondary-color: #263238;
+    /* Gris Oscuro (Texto Main) */
+    --bg-color: #f4f6f8;
+    /* Gris Suave (Fondo) */
+    --surface-color: #ffffff;
+    /* Blanco Puro (Tarjetas) */
+    --text-color: #263238;
+    --text-light: #546E7A;
+    /* Gris Azulado (Texto Secundario) */
+    --border-color: #eceff1;
+
+    /* Shadows & Depth */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
     /* Feedback */
     --success-bg: #E8F5E9;
-    --success-text: #2E7D32;
+    --success-text: #1B5E20;
     --error-bg: #FFEBEE;
     --error-text: #C62828;
 
@@ -40,41 +46,100 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    /* Eliminar height fixed y overflow hidden para permitir scroll natural */
 }
 
 /* Layout Scalable */
 .container {
     width: 100%;
-    max-width: 480px;
+    /* Max width aumentado para "Portal" look */
+    max-width: 1200px;
     margin: 0 auto;
-    /* Centrar contenedor horizontalmente */
     min-height: 100vh;
-    /* Asegurar que cubra al menos toda la pantalla */
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-md);
+    padding: 0;
+    /* Padding manejado por hijos */
 }
 
-/* Header */
-header {
+/* Navbar */
+.navbar {
+    background: var(--surface-color);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1B5E20 0%, #000000 100%);
+    color: white;
     text-align: center;
+    padding: 5rem 2rem;
     margin-bottom: var(--spacing-lg);
 }
 
-header h1 span {
-    font-size: 0.8em;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: white;
 }
 
-header p {
-    color: var(--text-light);
-    margin-top: 4px;
+.hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+/* Main Content Wrapper */
+.content-wrapper {
+    padding: var(--spacing-lg);
+    max-width: 1200px;
+    /* Ancho de lectura óptimo */
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 /* Main Content takes available space */
@@ -99,10 +164,23 @@ h1 {
     background: var(--surface-color);
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-    width: 100%;
-    /* Asegurar que la tarjeta ocupe el ancho del contenedor */
+    box-shadow: var(--shadow-md);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    border: none;
+    /* Removed border bottom */
+    padding-bottom: 0;
+    color: var(--primary-color);
 }
 
 footer {
@@ -162,7 +240,7 @@ footer {
     text-align: center;
     margin-top: 3rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
 }
 
@@ -229,7 +307,8 @@ select:focus {
 }
 
 .btn:hover {
-    background-color: #43A047; /* Un poco más oscuro */
+    background-color: #43A047;
+    /* Un poco más oscuro */
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(76, 175, 80, 0.4);
 }
