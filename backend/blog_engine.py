@@ -50,7 +50,8 @@ def get_post_by_slug(slug):
         post = frontmatter.load(f)
         
         # Convertir Markdown a HTML
-        html_content = markdown.markdown(post.content)
+        # Se activa la extensión 'tables' para soportar tablas y 'fenced_code' para bloques de código
+        html_content = markdown.markdown(post.content, extensions=['tables', 'fenced_code'])
         
         return {
             "slug": slug,
