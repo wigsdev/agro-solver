@@ -76,14 +76,4 @@ def calculate_density(data: DensityInput):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# 2. Endpoint Raíz (Antes de montar estáticos para asegurar index.html)
-@app.get("/")
-async def read_root():
-    """
-    Sirve el archivo frontend/index.html en la raíz.
-    """
-    return FileResponse('frontend/index.html')
 
-# 3. Archivos Estáticos (Frontend)
-# Montamos la carpeta 'frontend' en la raíz para servir CSS, JS y otros assets.
-app.mount("/", StaticFiles(directory="frontend"), name="static")
