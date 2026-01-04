@@ -15,9 +15,10 @@
 
 <body>
 
-    <div class="container">
-        <!-- Navbar Moderno -->
-        <nav class="navbar">
+    <!-- Navbar Moderno (Full Width) -->
+    <nav class="navbar">
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; min-height: auto;">
             <div class="brand">
                 <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
                     <i class="fa-solid fa-wheat-awn" style="color: var(--primary-light); font-size: 1.5rem;"></i>
@@ -29,49 +30,53 @@
                 <a href="/tools"><i class="fa-solid fa-screwdriver-wrench"></i> Herramientas</a>
                 <a href="/blog"><i class="fa-solid fa-newspaper"></i> Blog</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Bloque Principal -->
-        {% block main_content %}
-        <!-- Default wrapper for pages that don't override this -->
-        <main class="content-wrapper">
-            {% block content %}{% endblock %}
-        </main>
-        {% endblock %}
+    <!-- Bloque Principal -->
+    {% block main_content %}
+    <!-- Default wrapper for pages that don't override this -->
+    <main class="container content-wrapper">
+        {% block content %}{% endblock %}
+    </main>
+    {% endblock %}
 
-        <!-- Footer 3-Columnas -->
-        <footer>
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                        <i class="fa-solid fa-leaf" style="color: var(--accent-color);"></i>
-                        <h4 style="margin:0;">Agro-Tech</h4>
-                    </div>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">
-                        Inteligencia digital para el campo moderno. Optimizando cultivos con datos.
-                    </p>
+    <!-- Footer (Full Width) -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                    <i class="fa-solid fa-leaf" style="color: var(--accent-color);"></i>
+                    <h4 style="margin:0;">Agro-Tech</h4>
                 </div>
-                <div class="footer-col">
-                    <h4>Navegación</h4>
-                    <a href="/">Inicio</a>
-                    <a href="/tools">Catálogo de Herramientas</a>
-                    <a href="/blog">Novedades y Artículos</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="#">Política de Privacidad</a>
-                    <a href="#">Términos de Uso</a>
-                    <a href="#">Contacto</a>
-                </div>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    Inteligencia digital para el campo moderno. Optimizando cultivos con datos.
+                </p>
             </div>
-            <div class="footer-bottom">
-                &copy; 2026 Agro-Tech. Todos los derechos reservados.
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a href="/">Inicio</a>
+                <a href="/tools">Catálogo de Herramientas</a>
+                <a href="/blog">Novedades y Artículos</a>
             </div>
-        </footer>
-    </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Agro-Tech. Todos los derechos reservados.
+        </div>
+    </footer>
 
     <!-- Scripts -->
     {% block scripts %}{% endblock %}
+</body>
+
+<!-- Scripts -->
+{% block scripts %}{% endblock %}
 </body>
 
 </html>
